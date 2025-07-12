@@ -4,8 +4,8 @@ import { Brain, Lightbulb, Zap, Target } from "lucide-react";
 const concepts = [
   {
     icon: Brain,
-    title: "Inteligência Adaptativa",
-    description: "Nossa IA não apenas executa tarefas, mas evolui com cada desafio, criando soluções únicas para problemas únicos."
+    title: "Soluções Adaptativas",
+    description: "Desenvolvemos sistemas de IA que se adaptam aos desafios específicos de cada parceiro, criando soluções verdadeiramente personalizadas."
   },
   {
     icon: Lightbulb,
@@ -33,8 +33,8 @@ export const ConceptSection = () => {
             O Poder do <span className="bg-gradient-primary bg-clip-text text-transparent">DataDrift</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Nossa abordagem combina expertise técnica com visão estratégica para criar 
-            soluções que antes eram apenas conceitos futuristas.
+            Nossa abordagem colaborativa combina expertise técnica com visão estratégica para 
+            desenvolver soluções de IA sob medida para cada desafio.
           </p>
         </div>
         

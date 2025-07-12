@@ -23,14 +23,14 @@ export const PhilosophySection = () => {
               <div className="space-y-6 text-muted-foreground">
                 <p className="text-lg leading-relaxed">
                   Na DataDrift Labs, não acreditamos em limitações técnicas — acreditamos em 
-                  <strong className="text-accent"> oportunidades não descobertas</strong>. 
-                  Nosso trabalho começa onde os métodos convencionais encontram seus limites.
+                  <strong className="text-accent"> parcerias transformadoras</strong>. 
+                  Trabalhamos lado a lado com nossos parceiros onde os métodos convencionais encontram seus limites.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
-                  Cada projeto é uma expedição ao território inexplorado da inovação, 
-                  onde a inteligência artificial se torna a bússola que nos guia através 
-                  de complexidades antes impenetráveis.
+                  Cada projeto é uma colaboração única, onde desenvolvemos soluções de IA 
+                  personalizadas que se tornam a chave para desbloquear 
+                  complexidades antes impenetráveis.
                 </p>
                 
                 <p className="text-lg leading-relaxed">

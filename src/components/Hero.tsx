@@ -30,8 +30,8 @@ export const Hero = () => {
           
           {/* Description */}
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            Aproveitamos o poder da inteligência artificial para endereçar desafios que antes eram impossíveis de resolver. 
-            Cada projeto é uma oportunidade de redefinir o que é possível.
+            Colaboramos com parceiros para desenvolver soluções de IA personalizadas que endereçam desafios únicos. 
+            Cada projeto é uma oportunidade de redefinir o que é possível através de parcerias estratégicas.
           </p>
           
           {/* CTA Buttons */}
