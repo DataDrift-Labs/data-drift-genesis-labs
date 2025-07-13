@@ -2,6 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,23 +26,25 @@ export const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#conceito" className="text-muted-foreground hover:text-foreground transition-colors">
+            <button 
+              onClick={() => scrollToSection('conceito')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               Conceito
-            </a>
-            <a href="#abordagem" className="text-muted-foreground hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('abordagem')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               Abordagem
-            </a>
-            <a href="#contato" className="text-muted-foreground hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('contato')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               Contato
-            </a>
+            </button>
           </nav>
-          
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
-              Começar Projeto
-            </Button>
-          </div>
           
           {/* Mobile menu button */}
           <Button 
@@ -52,18 +61,33 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              <a href="#conceito" className="text-muted-foreground hover:text-foreground transition-colors">
+              <button 
+                onClick={() => {
+                  scrollToSection('conceito');
+                  setIsMenuOpen(false);
+                }} 
+                className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              >
                 Conceito
-              </a>
-              <a href="#abordagem" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button 
+                onClick={() => {
+                  scrollToSection('abordagem');
+                  setIsMenuOpen(false);
+                }} 
+                className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              >
                 Abordagem
-              </a>
-              <a href="#contato" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button 
+                onClick={() => {
+                  scrollToSection('contato');
+                  setIsMenuOpen(false);
+                }} 
+                className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              >
                 Contato
-              </a>
-              <Button className="bg-gradient-primary hover:shadow-glow transition-all duration-300 w-full">
-                Começar Projeto
-              </Button>
+              </button>
             </nav>
           </div>
         )}

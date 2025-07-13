@@ -26,7 +26,7 @@ const concepts = [
 
 export const ConceptSection = () => {
   return (
-    <section className="py-24 px-6 bg-card/30">
+    <section id="conceito" className="py-24 px-6 bg-card/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

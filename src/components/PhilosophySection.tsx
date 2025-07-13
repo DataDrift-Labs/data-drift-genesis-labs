@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 
 export const PhilosophySection = () => {
   return (
-    <section className="py-24 px-6">
+    <section id="abordagem" className="py-24 px-6">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <Card className="p-8 md:p-12 bg-gradient-secondary border-border relative overflow-hidden">

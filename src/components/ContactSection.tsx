@@ -4,7 +4,7 @@ import { Mail, MessageCircle, ArrowRight } from "lucide-react";
 
 export const ContactSection = () => {
   return (
-    <section className="py-24 px-6 bg-card/20">
+    <section id="contato" className="py-24 px-6 bg-card/20">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
