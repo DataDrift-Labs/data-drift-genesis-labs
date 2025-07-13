@@ -1,8 +1,48 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, MessageCircle, ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, MessageCircle, ArrowRight, Send } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("Email inválido"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+});
 
 export const ContactSection = () => {
+  const { toast } = useToast();
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+    toast({
+      title: "Mensagem enviada!",
+      description: "Entraremos em contato em breve. Obrigado!",
+    });
+    form.reset();
+  };
   return (
     <section id="contato" className="py-24 px-6 bg-card/20">
       <div className="container mx-auto">
@@ -27,21 +67,70 @@ export const ContactSection = () => {
                 Vamos Conversar Sobre Seu Próximo Projeto
               </h3>
               
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-6">
                 Compartilhe conosco seus desafios mais complexos. 
                 Nossa equipe está pronta para transformar impossibilidades em oportunidades reais.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 group">
-                  <Mail className="mr-2 w-4 h-4" />
-                  Iniciar Conversa
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-border hover:bg-card">
-                  Ver Cases de Sucesso
-                </Button>
-              </div>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-left">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Nome</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Seu nome completo" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="seu@email.com" type="email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Mensagem</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="Conte-nos sobre seu projeto ou desafio..."
+                            className="min-h-[120px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 group"
+                  >
+                    <Send className="mr-2 w-4 h-4" />
+                    Enviar Mensagem
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
+              </Form>
             </div>
           </Card>
         </div>
