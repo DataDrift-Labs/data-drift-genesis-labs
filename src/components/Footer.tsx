@@ -20,6 +20,9 @@ export const Footer = () => {
               © 2024 DataDrift Labs. Todos os direitos reservados.
             </p>
             <p className="text-xs text-muted-foreground mt-1">
+              CNPJ: 61.738.333/0001-07
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">
               Construído com IA e muita ambição
             </p>
           </div>
