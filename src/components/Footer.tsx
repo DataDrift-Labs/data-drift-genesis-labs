@@ -17,7 +17,7 @@ export const Footer = () => {
           {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              © 2024 DataDrift Labs. Todos os direitos reservados.
+              © 2025 DataDrift Labs. Todos os direitos reservados.
             </p>
             <p className="text-xs text-muted-foreground mt-1">
               CNPJ: 61.738.333/0001-07
